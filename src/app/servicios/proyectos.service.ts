@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ProyectosService {
 
-  proyUrl="http://localhost:8080/";
+  proyUrl="https://portfolio-perlaacosta.onrender.com/";
 
   constructor(private http:HttpClient) { }
 

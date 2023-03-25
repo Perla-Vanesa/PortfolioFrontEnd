@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class EducacionService {
 
-  eduUrl="http://localhost:8080/";
+  eduUrl="https://portfolio-perlaacosta.onrender.com/";
 
   constructor(private http:HttpClient) { }
 

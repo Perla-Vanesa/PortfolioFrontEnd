@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AcercaDeService {
-  acercaDeUrl="http://localhost:8080/";
+  acercaDeUrl="https://portfolio-perlaacosta.onrender.com/";
 
   constructor(private http:HttpClient) { }
 

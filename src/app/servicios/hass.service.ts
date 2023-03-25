@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class HassService {
-  hassUrl="http://localhost:8080/";
+  hassUrl="https://portfolio-perlaacosta.onrender.com/";
 
   constructor(private http:HttpClient) { }
   
