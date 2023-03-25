@@ -1,0 +1,17 @@
+<header>
+    <div class="container">
+        <div class="row" *ngFor="let header of headerList">
+            <div class="col-1"><img [src]="header.apLogo" alt=""></div>
+            <div class="col"></div>
+            <div class="col-1"><!-- <a href=""><i class="bi bi-linkedin"></i></a> --><a href=""><i class="bi bi-facebook"></i></a></div>
+            <div class="col-1"><a href="/login" *ngIf="!isLogged" id="boton">  <i class="bi bi-person"></i>  </a>
+            <button type="button" class="btn btn-success btn-lg" id="button" (click)="onLogOut()" *ngIf="isLogged" >  <i class="bi bi-box-arrow-right"></i></button></div>
+            <div class="col-12">
+                <button type="button" class="btn btn-success" id="button" (click)="headerEd()" *ngIf="isLogged&&!hActivo" ><i class="bi bi-pencil"></i></button>
+                <button type="button" class="btn btn-success" id="button" (click)="headerEd()" *ngIf="isLogged&&hActivo"><i class="bi bi-pencil-fill"></i></button>
+                <p *ngIf="hActivo">Link de la imagen del banner: <input type="text" name="Dominio" [(ngModel)]="header.banner"></p>
+                <img [src]="header.banner" alt="" id="banner">
+            </div>
+        </div>
+    </div>
+  </header>

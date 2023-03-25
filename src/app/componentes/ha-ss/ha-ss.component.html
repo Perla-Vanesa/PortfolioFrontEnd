@@ -1,0 +1,16 @@
+<div class="container" id="HaSS">
+    <div class="row">
+        <div class="col-12"><h1>Hard & Soft Skills
+            <button type="button" class="btn btn-success" id="button" (click)="newHabilidad()" *ngIf="isLogged"><i class="bi bi-plus-circle"></i></button>
+            <button type="button" class="btn btn-success" id="button" (click)="edHabilidad()" *ngIf="isLogged&&!hActivo" ><i class="bi bi-pencil"></i></button>
+            <button type="button" class="btn btn-success" id="button" (click)="edHabilidad()" *ngIf="isLogged&&hActivo"><i class="bi bi-pencil-fill"></i></button>
+        </h1></div>
+        <div class="col-3" *ngFor="let habilidad of haSSList" id="contenido">
+            <div class="pie" style="--p:{{habilidad.dominio}};--b:10px;--c:green;">{{habilidad.dominio}}%</div>
+            <button type="button" class="btn btn-success" id="button" (click)="delHabilidad(habilidad.id)" *ngIf="isLogged"><i class="bi bi-x-circle"></i></button>
+            <p>{{habilidad.nombreHabilidad}}</p>
+            <p *ngIf="hActivo" >Porcentaje de dominio, colocar solo el número: <input type="text" name="Dominio" [(ngModel)]="habilidad.dominio"></p>
+            <p *ngIf="hActivo" >Nombre de habilidad: <input type="text" name="Nombre" [(ngModel)]="habilidad.nombreHabilidad"></p>
+        </div>
+    </div>
+</div>

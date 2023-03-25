@@ -1,0 +1,20 @@
+<div class="container" id="AcercaDe">
+    <div class="row" *ngFor="let acerca of acercaDeList" id="contenido">
+        <div class="col-4">
+            <img [src]="acerca.urlFoto" alt="" id="profile">
+            <button type="button" class="btn btn-success" id="button" (click)="perfilEd()" *ngIf="isLogged&&!perActivo" ><i class="bi bi-pencil"></i></button>
+            <button type="button" class="btn btn-success" id="button" (click)="perfilEd()" *ngIf="isLogged&&perActivo"><i class="bi bi-pencil-fill"></i></button>
+            <h2>{{acerca.name}}</h2>
+            <p *ngIf="perActivo">Link foto perfil: <input type="text" name="urlFoto" [(ngModel)]="acerca.urlFoto"></p>
+            <p *ngIf="perActivo">Nombre: <input type="text" name="Nombre" [(ngModel)]="acerca.name"></p>  
+        </div>
+        <div class="col-8">
+            <button type="button" class="btn btn-success" id="button" (click)="acercaDeEd()" *ngIf="isLogged&&!aDeActivo" ><i class="bi bi-pencil"></i></button>
+            <button type="button" class="btn btn-success" id="button" (click)="acercaDeEd()" *ngIf="isLogged&&aDeActivo"><i class="bi bi-pencil-fill"></i></button>
+            <h1>{{acerca.title}}</h1>
+            <p id="edicionDeTexto" >{{acerca.sobreMi}}</p>
+            <p *ngIf="aDeActivo">Titulo: <input type="text" name="Titulo" [(ngModel)]="acerca.title"></p>
+            <p *ngIf="aDeActivo">Descripción profesional: <input type="text" name="Descripcion" [(ngModel)]="acerca.sobreMi"></p>
+        </div>
+    </div>
+</div>

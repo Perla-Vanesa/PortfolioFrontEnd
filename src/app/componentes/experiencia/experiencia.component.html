@@ -1,0 +1,22 @@
+<div class="container" id="Experiencia">
+    <h1>Experiencia
+        <button type="button" class="btn btn-success" id="button" (click)="newExp()" *ngIf="isLogged"><i class="bi bi-plus-circle"></i></button>
+        <button type="button" class="btn btn-success" id="button" (click)="expEd()" *ngIf="isLogged&&!expActivo" ><i class="bi bi-pencil"></i></button>
+        <button type="button" class="btn btn-success" id="button" (click)="expEd()" *ngIf="isLogged&&expActivo"><i class="bi bi-pencil-fill"></i></button>
+    </h1>
+    <div class="row" *ngFor="let experiencia of experienciaList" id="contenido">
+        <div class="col-4">
+            <img [src]="experiencia.urlLogo" alt="" class="img">
+            <p *ngIf="expActivo">Link del logo: <input type="text" name="Dominio" [(ngModel)]="experiencia.urlLogo"></p>
+        </div>
+        <div class="col-8">
+            <button type="button" class="btn btn-success" id="button" (click)="delExp(experiencia.id)" *ngIf="isLogged"><i class="bi bi-x-circle"></i></button>
+            <h2>{{experiencia.puesto}}({{experiencia.inicio}}-{{experiencia.fin}})</h2>
+            <p>{{experiencia.descripcion}}</p>
+            <p *ngIf="expActivo">Título del puesto: <input type="text" name="Dominio" [(ngModel)]="experiencia.puesto"></p>
+            <p *ngIf="expActivo">Inicio(solo el año y en número): <input type="text" name="Dominio" [(ngModel)]="experiencia.inicio"></p>
+            <p *ngIf="expActivo">Fin(solo el año y en número): <input type="text" name="Dominio" [(ngModel)]="experiencia.fin"></p>
+            <p *ngIf="expActivo">Descripción del trabajo: <input type="text" name="Dominio" [(ngModel)]="experiencia.descripcion"></p>
+        </div>
+    </div>
+</div>

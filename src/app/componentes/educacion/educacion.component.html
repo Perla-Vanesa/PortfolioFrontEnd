@@ -1,0 +1,22 @@
+<div class="container" id="Educacion">
+    <h1>Educación
+        <button type="button" class="btn btn-success" id="button" (click)="newEdu()" *ngIf="isLogged"><i class="bi bi-plus-circle"></i></button>
+        <button type="button" class="btn btn-success" id="button" (click)="educEd()" *ngIf="isLogged&&!edActivo" ><i class="bi bi-pencil"></i></button>
+        <button type="button" class="btn btn-success" id="button" (click)="educEd()" *ngIf="isLogged&&edActivo"><i class="bi bi-pencil-fill"></i></button>
+    </h1>
+    <div class="row" *ngFor="let educacion of educacionList" id="contenido">
+        <div class="col-4">
+            <img [src]="educacion.urlLogo" alt="" class="img">
+            <p *ngIf="edActivo">Link del logo: <input type="text" name="Dominio" [(ngModel)]="educacion.urlLogo"></p>
+        </div>
+        <div class="col-8">
+            <button type="button" class="btn btn-success" id="button" (click)="delEdu(educacion.id)" *ngIf="isLogged"><i class="bi bi-x-circle"></i></button>
+            <h2>{{educacion.nombreInst}}({{educacion.inicio}}-{{educacion.fin}})</h2>
+            <p>{{educacion.carrera}}</p>
+            <p *ngIf="edActivo">Nombre del instituto: <input type="text" name="Dominio" [(ngModel)]="educacion.nombreInst"></p>
+            <p *ngIf="edActivo">Inicio(solo el año y en número): <input type="text" name="Dominio" [(ngModel)]="educacion.inicio"></p>
+            <p *ngIf="edActivo">Fin(solo el año y en número): <input type="text" name="Dominio" [(ngModel)]="educacion.fin"></p>
+            <p *ngIf="edActivo">Carrera o título: <input type="text" name="Dominio" [(ngModel)]="educacion.carrera"></p>
+        </div>
+    </div>
+</div>
